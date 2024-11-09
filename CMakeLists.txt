@@ -1,20 +1,12 @@
 # stop if cmake version is below 3.0
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-# project name and enable C++ support
-project(hello LANGUAGES CXX)
+### COMMENT/UNCOMMENT "C PROG" AND "CXX PROG" TO SWITCH BETWEEN C <=> CPP
 
-# require C++11
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+## C PROG
+project(testbed LANGUAGES C)
+add_subdirectory("./c") 
 
-# we define the executable
-add_executable(testbed "")
-
-# and its sources
-target_sources(
-  testbed
-  PRIVATE
-    testbed.cpp
-  )
+## CXX PROG
+# project(testbed LANGUAGES CXX)
+# add_subdirectory("./cpp") 

@@ -15,3 +15,5 @@ To build, run CMake:Build or press F7.
 
 To debug, run CMake:Debug or press F5.
 
+### Switching between C and C++
+See [CMakeLists.txt](https://github.com/jclosure/cpp_testbed_skel/blob/a8402829c7de40316860c7904ff7d703ee8a2394/CMakeLists.txt#L4) for instructions.
