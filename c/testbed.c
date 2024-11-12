@@ -118,7 +118,7 @@ int main(int argc, char **argv)
     printf("%d\n", array_int);
 
     // floating point numbers cannot perfectly store exact values
-    auto ans = (0.1 + 0.1 + 0.1) == 0.3;
+    int ans = (0.1 + 0.1 + 0.1) == 0.3;
     printf("((0.1 + 0.1 + 0.1) == 0.3) => %s\n", ans ? "true" : "false");
 
     // END BASIC TYPES
@@ -145,7 +145,7 @@ int main(int argc, char **argv)
     // bitwise operators
 
     // each shift left is like multiplying by 2
-    auto bs = 0x01 << 1; // => 2
+    int bs = 0x01 << 1; // => 2
     printf("%d\n", bs);
 
     // each shift right is like dividing by 2
