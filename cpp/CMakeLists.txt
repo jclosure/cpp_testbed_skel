@@ -14,9 +14,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # we define the executable
 add_executable(testbed "")
 
+file(GLOB_RECURSE HEADERS *.h)
+file(GLOB_RECURSE SOURCES *.cc *.c)
+
 # and its sources
 target_sources(
   testbed
   PRIVATE
-    testbed.cpp
+    ${SHARED}
+    ${SOURCES}
   )
+  

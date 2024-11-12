@@ -288,4 +288,8 @@ int main(int argc, char **argv)
         int width;
         int height;
     };
+
+    // RUN EXAMPLES
+    // main_producer_consumer(argc, argv);
+    main_binary_semaphor(argc, argv);
 }

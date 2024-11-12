@@ -6,6 +6,8 @@
 #include <string.h>
 #include <semaphore.h>
 
+#include "../my_c_lib_header.h"
+
 #define THREAD_NUM 1
 
 sem_t semFuel;
@@ -19,7 +21,7 @@ void* routine(void* args) {
     sem_post(&semFuel);
 }
 
-int main(int argc, char *argv[]) {
+int main_binary_semaphor(int argc, char *argv[]) {
     pthread_t th[THREAD_NUM];
     fuel = malloc(sizeof(int));
     *fuel = 50;

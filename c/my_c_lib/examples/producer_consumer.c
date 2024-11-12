@@ -7,6 +7,8 @@
 #include <time.h>
 #include <semaphore.h>
 
+#include "../my_c_lib_header.h"
+
 #define THREAD_NUM 8
 
 sem_t semEmpty;
@@ -15,7 +17,7 @@ sem_t semFull;
 pthread_mutex_t mutexBuffer;
 
 int buffer[10];
-int count = 0;
+int count_ = 0;
 
 void* producer(void* args) {
     while (1) {
@@ -26,8 +28,8 @@ void* producer(void* args) {
         // Add to the buffer
         sem_wait(&semEmpty);
         pthread_mutex_lock(&mutexBuffer);
-        buffer[count] = x;
-        count++;
+        buffer[count_] = x;
+        count_++;
         pthread_mutex_unlock(&mutexBuffer);
         sem_post(&semFull);
     }
@@ -40,8 +42,8 @@ void* consumer(void* args) {
         // Remove from the buffer
         sem_wait(&semFull);
         pthread_mutex_lock(&mutexBuffer);
-        y = buffer[count - 1];
-        count--;
+        y = buffer[count_ - 1];
+        count_--;
         pthread_mutex_unlock(&mutexBuffer);
         sem_post(&semEmpty);
 
@@ -51,7 +53,7 @@ void* consumer(void* args) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main_producer_consumer(int argc, char* argv[]) {
     srand(time(NULL));
     pthread_t th[THREAD_NUM];
     pthread_mutex_init(&mutexBuffer, NULL);
